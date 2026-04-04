@@ -1020,3 +1020,16 @@
 .video-frame-wrapper video {
     aspect-ratio: 16/9;
 }
+
+/* Image loading state */
+.image-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    color: #e84393;
+    opacity: 0.6;
+    animation: pulse 1.5s infinite;
+}
