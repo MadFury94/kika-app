@@ -1,0 +1,1002 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .site {
+    font-family: 'Nunito', sans-serif;
+    background: #fffef9;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  .nav {
+    background: #fff;
+    border-bottom: 3px solid #f9e4b7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(255,107,107,0.4);
+  }
+  .logo-text {
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #e84393;
+  }
+  .logo-text span {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f9aa31;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    color: #555;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #e84393; }
+  .nav-donate {
+    background: #e84393;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(232,67,147,0.35);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .nav-donate:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(232,67,147,0.45); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #fff5f9 0%, #fffbea 60%, #edfff6 100%);
+    padding: 60px 40px 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+    min-height: 480px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bubbles {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+  }
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.18;
+    animation: floatBubble 6s ease-in-out infinite;
+  }
+  @keyframes floatBubble {
+    0%,100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-18px) scale(1.05); }
+  }
+  .hero-left {
+    flex: 1;
+    padding-bottom: 60px;
+    z-index: 2;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff3fb;
+    border: 2px solid #f9c6e3;
+    border-radius: 50px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #e84393;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 20px;
+  }
+  .hero-tag .dot { width: 8px; height: 8px; border-radius: 50%; background: #e84393; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 52px;
+    line-height: 1.1;
+    color: #1a1a2e;
+    margin-bottom: 18px;
+  }
+  .hero h1 .highlight-pink { color: #e84393; }
+  .hero h1 .highlight-yellow { color: #f9aa31; }
+  .hero-desc {
+    font-size: 17px;
+    color: #555;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: #e84393;
+    color: #fff;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(232,67,147,0.38);
+    transition: transform 0.15s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-secondary {
+    background: #fff;
+    color: #e84393;
+    border: 2.5px solid #e84393;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn-secondary:hover { background: #fff0f8; }
+  .hero-right {
+    flex: 0 0 360px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-illustration {
+    width: 320px;
+    height: 300px;
+    position: relative;
+  }
+  /* Kids SVG illustration */
+  .stars-float {
+    position: absolute;
+    animation: spinSlow 8s linear infinite;
+  }
+  @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: #1a1a2e;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+  .stat-item {
+    flex: 1;
+    padding: 26px 20px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Fredoka One', cursive;
+    font-size: 34px;
+    color: #ffd93d;
+    display: block;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+  .stat-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* MISSION */
+  .mission {
+    padding: 70px 40px;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    background: #fff;
+  }
+  .mission-left {
+    flex: 1;
+  }
+  .section-tag {
+    display: inline-block;
+    background: #fff8e1;
+    border: 2px solid #f9e4b7;
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #e6931a;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 38px;
+    line-height: 1.15;
+    color: #1a1a2e;
+    margin-bottom: 18px;
+  }
+  .mission-text {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .mission-right {
+    flex: 0 0 340px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .mission-card {
+    border-radius: 20px;
+    padding: 22px 18px;
+    text-align: center;
+  }
+  .mission-card.pink { background: #fff0f8; border: 2px solid #f9c6e3; }
+  .mission-card.yellow { background: #fffbea; border: 2px solid #f9e4b7; }
+  .mission-card.green { background: #f0fff6; border: 2px solid #a8f0c8; }
+  .mission-card.blue { background: #f0f6ff; border: 2px solid #b8d4ff; }
+  .mission-card-icon { font-size: 30px; margin-bottom: 8px; }
+  .mission-card-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+  }
+  .mission-card-desc {
+    font-size: 12px;
+    color: #888;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  /* VIDEO SECTION */
+  .video-section {
+    background: linear-gradient(160deg, #1a1a2e 0%, #2d1a4e 100%);
+    padding: 70px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .video-section::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(232,67,147,0.12);
+  }
+  .video-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: rgba(249,170,49,0.1);
+  }
+  .video-tag { border-color: rgba(249,170,49,0.4); background: rgba(249,170,49,0.1); color: #ffd93d; }
+  .video-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .video-title .hl { color: #ffd93d; }
+  .video-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 600;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .video-frame-wrapper {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    border: 3px solid rgba(255,255,255,0.1);
+    z-index: 2;
+  }
+  .video-placeholder {
+    background: linear-gradient(135deg, #2d1a4e, #1a2e4e);
+    aspect-ratio: 16/9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .video-placeholder:hover { opacity: 0.92; }
+  .play-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #e84393;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 16px rgba(232,67,147,0.2), 0 0 0 32px rgba(232,67,147,0.08);
+    animation: playPulse 2.5s ease-in-out infinite;
+  }
+  @keyframes playPulse {
+    0%,100% { box-shadow: 0 0 0 16px rgba(232,67,147,0.2), 0 0 0 32px rgba(232,67,147,0.08); }
+    50% { box-shadow: 0 0 0 20px rgba(232,67,147,0.15), 0 0 0 40px rgba(232,67,147,0.05); }
+  }
+  .play-triangle {
+    width: 0; height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 26px solid #fff;
+    margin-left: 6px;
+  }
+  .video-caption {
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+  }
+  .video-badges {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+  .video-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    padding: 7px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+  }
+  .video-badge .dot-badge {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .dot-pink { background: #e84393; }
+  .dot-yellow { background: #ffd93d; }
+  .dot-green { background: #4ade80; }
+
+  /* OUTREACH / PALLIATIVE SECTION */
+  .outreach {
+    padding: 70px 40px;
+    background: #fffef9;
+  }
+  .outreach-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .outreach-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+  }
+  .outreach-card {
+    border-radius: 22px;
+    overflow: hidden;
+    border: 2px solid #f0ece0;
+    background: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .outreach-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(0,0,0,0.08); }
+  .outreach-card-img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    position: relative;
+  }
+  .outreach-card-img.bg1 { background: linear-gradient(135deg, #fff5f9, #ffe0f0); }
+  .outreach-card-img.bg2 { background: linear-gradient(135deg, #fffbea, #fff0c0); }
+  .outreach-card-img.bg3 { background: linear-gradient(135deg, #f0fff6, #d0ffe8); }
+  .outreach-card-body { padding: 18px; }
+  .outreach-card-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    color: #1a1a2e;
+    margin-bottom: 7px;
+  }
+  .outreach-card-desc {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+  .outreach-card-tag {
+    display: inline-block;
+    margin-top: 12px;
+    background: #fff0f8;
+    color: #e84393;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* GALLERY STRIP */
+  .gallery-strip {
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 2px solid #f0ece0;
+  }
+  .gallery-item {
+    flex: 1;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    cursor: pointer;
+    transition: flex 0.3s;
+  }
+  .gallery-item:hover { flex: 1.6; }
+  .gi1 { background: #ffe0f0; }
+  .gi2 { background: #fff0c0; }
+  .gi3 { background: #d0ffe8; }
+  .gi4 { background: #d0eaff; }
+  .gi5 { background: #ffe5cc; }
+
+  /* DONATE */
+  .donate-section {
+    padding: 70px 40px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #e84393 50%, #c026a0 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .donate-section::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+  .donate-section::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -30px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .donate-pre {
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 10px;
+  }
+  .donate-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 46px;
+    color: #fff;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 2;
+  }
+  .donate-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 600;
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+  }
+  .donate-amounts {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 2;
+  }
+  .amount-btn {
+    background: rgba(255,255,255,0.18);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .amount-btn:hover, .amount-btn.active {
+    background: rgba(255,255,255,0.32);
+    border-color: rgba(255,255,255,0.7);
+  }
+  .donate-cta {
+    background: #ffd93d;
+    color: #1a1a2e;
+    border: none;
+    padding: 16px 50px;
+    border-radius: 50px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+    z-index: 2;
+  }
+  .donate-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+
+  /* CONTACT / FOOTER */
+  .footer {
+    background: #1a1a2e;
+    padding: 50px 40px 24px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-brand .logo-text { color: #ffd93d; margin-bottom: 14px; display: block; font-size: 20px; }
+  .footer-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    font-weight: 600;
+  }
+  .footer-heading {
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a {
+    text-decoration: none;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #ffd93d; }
+  .footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .social-dot {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.2s;
+    font-weight: 700;
+  }
+  .social-dot:hover { background: #e84393; }
+  .footer-bottom {
+    background: #111122;
+    padding: 16px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 600;
+  }
+  .footer-bottom span { color: #e84393; }
+
+  /* Decorative hearts */
+  .floating-hearts {
+    position: absolute;
+    pointer-events: none;
+  }
+  .heart {
+    position: absolute;
+    animation: heartFloat 4s ease-in-out infinite;
+    font-size: 18px;
+    opacity: 0.4;
+  }
+  @keyframes heartFloat {
+    0%,100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+</style>
+
+<div class="site">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <div class="logo-badge">KO</div>
+      <div class="logo-text">
+        Kika Oshodin
+        <span>Care Foundation</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Our Work</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-donate">Donate Now</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bubbles">
+      <div class="bubble" style="width:180px;height:180px;background:#ffb3d1;top:20px;left:-40px;animation-delay:0s;"></div>
+      <div class="bubble" style="width:120px;height:120px;background:#ffd93d;top:60px;right:420px;animation-delay:1.5s;"></div>
+      <div class="bubble" style="width:80px;height:80px;background:#a8f0c8;bottom:60px;right:380px;animation-delay:0.8s;"></div>
+    </div>
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        Making Children Smile Since 2019
+      </div>
+      <h1>
+        Every Child Deserves<br>
+        <span class="highlight-pink">Love,</span> Care &<br>
+        <span class="highlight-yellow">A Bright Future</span>
+      </h1>
+      <p class="hero-desc">
+        Kika Oshodin Care Foundation reaches out to indigent children across family lines — providing palliatives, hope, and joy to kids who need it most.
+      </p>
+      <div class="hero-btns">
+        <button class="btn-primary">Our Impact</button>
+        <button class="btn-secondary">Watch Our Story</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <svg width="340" height="320" viewBox="0 0 340 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ground -->
+        <ellipse cx="170" cy="295" rx="130" ry="18" fill="#f9e4b7" opacity="0.5"/>
+        <!-- Kid 1 (left, pink dress) -->
+        <circle cx="100" cy="140" r="32" fill="#ffcc99"/>
+        <rect x="75" y="172" width="50" height="65" rx="16" fill="#e84393"/>
+        <rect x="80" y="237" width="16" height="40" rx="8" fill="#ffcc99"/>
+        <rect x="104" y="237" width="16" height="40" rx="8" fill="#ffcc99"/>
+        <!-- hair k1 -->
+        <ellipse cx="100" cy="120" rx="32" ry="20" fill="#2c1810"/>
+        <circle cx="82" cy="120" r="10" fill="#2c1810"/>
+        <circle cx="118" cy="120" r="10" fill="#2c1810"/>
+        <!-- eyes k1 -->
+        <circle cx="91" cy="142" r="4" fill="#2c1810"/>
+        <circle cx="109" cy="142" r="4" fill="#2c1810"/>
+        <path d="M91 153 Q100 160 109 153" stroke="#2c1810" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- bow k1 -->
+        <polygon points="85,113 75,105 80,115 75,125 85,117" fill="#ffd93d"/>
+        <polygon points="85,113 95,105 90,115 95,125 85,117" fill="#ffd93d"/>
+        <!-- arm k1 reaching up -->
+        <rect x="50" y="185" width="14" height="50" rx="7" fill="#ffcc99" transform="rotate(-30 57 185)"/>
+        <!-- Balloon k1 -->
+        <circle cx="35" cy="120" r="26" fill="#e84393"/>
+        <line x1="35" y1="146" x2="50" y2="170" stroke="#e84393" stroke-width="2"/>
+        <!-- Star on balloon -->
+        <text x="28" y="125" font-size="18" fill="rgba(255,255,255,0.5)">✦</text>
+
+        <!-- Kid 2 (center, blue) -->
+        <circle cx="170" cy="120" r="34" fill="#f0b98a"/>
+        <rect x="145" y="154" width="50" height="70" rx="16" fill="#4facfe"/>
+        <rect x="150" y="224" width="16" height="45" rx="8" fill="#f0b98a"/>
+        <rect x="174" y="224" width="16" height="45" rx="8" fill="#f0b98a"/>
+        <!-- hair k2 -->
+        <ellipse cx="170" cy="98" rx="34" ry="22" fill="#1a1a2e"/>
+        <!-- eyes k2 -->
+        <circle cx="160" cy="122" r="4.5" fill="#1a1a2e"/>
+        <circle cx="180" cy="122" r="4.5" fill="#1a1a2e"/>
+        <path d="M160 134 Q170 142 180 134" stroke="#1a1a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- Gift box held by center kid -->
+        <rect x="150" y="178" width="38" height="32" rx="5" fill="#ffd93d"/>
+        <rect x="166" y="178" width="6" height="32" fill="#e84393"/>
+        <rect x="150" y="188" width="38" height="6" fill="#e84393"/>
+        <!-- ribbon bow on gift -->
+        <circle cx="169" cy="180" r="7" fill="#e84393" opacity="0.8"/>
+
+        <!-- Kid 3 (right, green) -->
+        <circle cx="240" cy="140" r="32" fill="#ffcc99"/>
+        <rect x="215" y="172" width="50" height="65" rx="16" fill="#4ade80"/>
+        <rect x="220" y="237" width="16" height="40" rx="8" fill="#ffcc99"/>
+        <rect x="244" y="237" width="16" height="40" rx="8" fill="#ffcc99"/>
+        <!-- hair k3 ponytail -->
+        <ellipse cx="240" cy="120" rx="32" ry="20" fill="#8b4513"/>
+        <circle cx="240" cy="103" r="12" fill="#8b4513"/>
+        <rect x="244" y="85" width="10" height="22" rx="5" fill="#8b4513"/>
+        <circle cx="249" cy="80" r="8" fill="#e84393"/>
+        <!-- eyes k3 -->
+        <circle cx="231" cy="142" r="4" fill="#2c1810"/>
+        <circle cx="249" cy="142" r="4" fill="#2c1810"/>
+        <path d="M231 153 Q240 160 249 153" stroke="#2c1810" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- arm k3 -->
+        <rect x="276" y="185" width="14" height="50" rx="7" fill="#ffcc99" transform="rotate(30 283 185)"/>
+        <!-- Balloon k3 -->
+        <circle cx="305" cy="120" r="26" fill="#ffd93d"/>
+        <line x1="305" y1="146" x2="290" y2="170" stroke="#ffd93d" stroke-width="2"/>
+        <!-- Star on balloon -->
+        <text x="298" y="125" font-size="18" fill="rgba(255,255,255,0.5)">✦</text>
+
+        <!-- Floating stars -->
+        <text x="155" y="60" font-size="22" fill="#ffd93d" opacity="0.8" style="animation:spinSlow 6s linear infinite">✦</text>
+        <text x="20" y="80" font-size="14" fill="#e84393" opacity="0.7">♥</text>
+        <text x="295" y="70" font-size="14" fill="#4ade80" opacity="0.7">★</text>
+        <text x="130" y="50" font-size="12" fill="#4facfe" opacity="0.6">✦</text>
+        <text x="220" y="40" font-size="16" fill="#e84393" opacity="0.5">♥</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-icon">👧</span>
+      <span class="stat-num">500+</span>
+      <div class="stat-label">Children Reached</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-icon">🎁</span>
+      <span class="stat-num">12</span>
+      <div class="stat-label">Outreach Programs</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-icon">🏘️</span>
+      <span class="stat-num">8+</span>
+      <div class="stat-label">Communities Served</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-icon">🤝</span>
+      <span class="stat-num">50+</span>
+      <div class="stat-label">Volunteers</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-icon">💛</span>
+      <span class="stat-num">5 Yrs</span>
+      <div class="stat-label">Of Spreading Love</div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <section class="mission">
+    <div class="mission-left">
+      <div class="section-tag">Who We Are</div>
+      <h2 class="section-title">Caring for Children<br>Across Every Family Line</h2>
+      <p class="mission-text">
+        Founded in honor of Kika Oshodin, our foundation was born from a deep belief that every child — regardless of their family's circumstances — deserves access to basic palliatives, nutrition, and the warmth of community care.
+      </p>
+      <p class="mission-text">
+        We go into underserved communities to identify indigent children and provide them with food items, clothing, hygiene kits, and educational supplies, all distributed with love and dignity.
+      </p>
+    </div>
+    <div class="mission-right">
+      <div class="mission-card pink">
+        <div class="mission-card-icon">🍚</div>
+        <div class="mission-card-title">Food Palliatives</div>
+        <div class="mission-card-desc">Rice, beans, oils and essential food items given to children in need</div>
+      </div>
+      <div class="mission-card yellow">
+        <div class="mission-card-icon">👗</div>
+        <div class="mission-card-title">Clothing</div>
+        <div class="mission-card-desc">Clean, quality clothing for children across diverse family backgrounds</div>
+      </div>
+      <div class="mission-card green">
+        <div class="mission-card-icon">📚</div>
+        <div class="mission-card-title">Education</div>
+        <div class="mission-card-desc">School supplies, stationery, and learning materials for young minds</div>
+      </div>
+      <div class="mission-card blue">
+        <div class="mission-card-icon">🧴</div>
+        <div class="mission-card-title">Hygiene Kits</div>
+        <div class="mission-card-desc">Soap, toothbrush, and essential hygiene products for every child</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section class="video-section">
+    <div class="section-tag video-tag" style="margin-bottom:16px;">Our Outreach in Action</div>
+    <h2 class="video-title">Watch the <span class="hl">Magic Happen</span></h2>
+    <p class="video-sub">See firsthand how your support transforms the lives of children across our communities.</p>
+
+    <div class="video-frame-wrapper">
+      <div class="video-placeholder">
+        <div class="play-btn">
+          <div class="play-triangle"></div>
+        </div>
+        <p class="video-caption">Kika Oshodin Care Foundation — 2024 Outreach</p>
+      </div>
+    </div>
+
+    <div class="video-badges">
+      <div class="video-badge"><span class="dot-badge dot-pink"></span>Community Outreach 2024</div>
+      <div class="video-badge"><span class="dot-badge dot-yellow"></span>500+ Children Impacted</div>
+      <div class="video-badge"><span class="dot-badge dot-green"></span>Multiple Communities</div>
+    </div>
+  </section>
+
+  <!-- OUTREACH SECTION -->
+  <section class="outreach">
+    <div class="outreach-header">
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Our Palliative Programs</h2>
+      <p style="font-size:16px;color:#888;max-width:520px;margin:10px auto 0;font-weight:600;line-height:1.7;">Every outreach is a celebration of hope — reaching children from all backgrounds with tangible gifts of love.</p>
+    </div>
+
+    <div class="outreach-cards">
+      <div class="outreach-card">
+        <div class="outreach-card-img bg1">🎁</div>
+        <div class="outreach-card-body">
+          <div class="outreach-card-title">Palliative Distribution</div>
+          <div class="outreach-card-desc">We identify indigent children and families, then distribute food baskets, household items and essentials regardless of ethnicity or religion.</div>
+          <span class="outreach-card-tag">Core Program</span>
+        </div>
+      </div>
+      <div class="outreach-card">
+        <div class="outreach-card-img bg2">🎊</div>
+        <div class="outreach-card-body">
+          <div class="outreach-card-title">Celebration Outreaches</div>
+          <div class="outreach-card-desc">Special programs on festive days — bringing smiles, fun, food, and gifts to children who otherwise wouldn't celebrate.</div>
+          <span class="outreach-card-tag" style="background:#fffbea;color:#e6931a;">Seasonal</span>
+        </div>
+      </div>
+      <div class="outreach-card">
+        <div class="outreach-card-img bg3">💌</div>
+        <div class="outreach-card-body">
+          <div class="outreach-card-title">Cross-Family Reach</div>
+          <div class="outreach-card-desc">Our reach cuts across family, tribal, and religious lines — every child is our child, every need is our call to action.</div>
+          <span class="outreach-card-tag" style="background:#f0fff6;color:#15803d;">Community</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery strip -->
+    <div style="max-width:1000px;margin:0 auto 12px;text-align:center;">
+      <p style="font-size:13px;font-weight:700;color:#bbb;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Moments from our outreaches</p>
+    </div>
+    <div class="gallery-strip">
+      <div class="gallery-item gi1">🧒</div>
+      <div class="gallery-item gi2">🎁</div>
+      <div class="gallery-item gi3">🥰</div>
+      <div class="gallery-item gi4">🙌</div>
+      <div class="gallery-item gi5">🎊</div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section class="donate-section">
+    <div class="donate-pre">Every naira counts</div>
+    <h2 class="donate-title">Be a Hero for a Child Today</h2>
+    <p class="donate-sub">Your donation goes directly to providing palliatives for indigent children who need it most. No child should go without.</p>
+    <div class="donate-amounts">
+      <button class="amount-btn">₦5,000</button>
+      <button class="amount-btn active">₦10,000</button>
+      <button class="amount-btn">₦25,000</button>
+      <button class="amount-btn">Custom</button>
+    </div>
+    <button class="donate-cta">Donate ₦10,000 Now</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <span class="logo-text" style="font-family:'Fredoka One',cursive;">Kika Oshodin Care Foundation</span>
+      <p class="footer-desc">Spreading love, palliatives and hope to indigent children across communities — because every child deserves to smile.</p>
+      <div class="footer-social">
+        <div class="social-dot">f</div>
+        <div class="social-dot">in</div>
+        <div class="social-dot">ig</div>
+        <div class="social-dot">tw</div>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#">About the Foundation</a></li>
+        <li><a href="#">Our Programs</a></li>
+        <li><a href="#">Photo Gallery</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Donate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Get in Touch</div>
+      <ul class="footer-links">
+        <li><a href="#">info@kikaoshofoundation.org</a></li>
+        <li><a href="#">+234 000 000 0000</a></li>
+        <li><a href="#">Lagos, Nigeria</a></li>
+        <li style="margin-top:16px;"><a href="#" style="color:#ffd93d;font-weight:700;">Partner With Us</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    &copy; 2024 Kika Oshodin Care Foundation. Made with <span>♥</span> for the children.
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.amount-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const amount = this.textContent;
+      const cta = document.querySelector('.donate-cta');
+      if (amount !== 'Custom') {
+        cta.textContent = 'Donate ' + amount + ' Now';
+      } else {
+        cta.textContent = 'Choose Your Amount';
+      }
+    });
+  });
+</script>
